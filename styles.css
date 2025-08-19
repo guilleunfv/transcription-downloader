@@ -516,3 +516,168 @@ button:disabled {
     font-size: 11px;
     border-radius: 6px;
 }
+
+.filter-step {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.filter-step h4 {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 14px;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-content {
+    flex: 1;
+}
+
+.radio-content strong {
+    color: #333;
+    font-size: 13px;
+}
+
+.radio-content small {
+    color: #666;
+    font-size: 11px;
+    line-height: 1.3;
+}
+
+.id-filter-config {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border-left: 4px solid #1a73e8;
+}
+
+.ids-input {
+    margin-bottom: 25px;
+}
+
+.filter-mode h4 {
+    margin: 20px 0 15px 0;
+    color: #1a73e8;
+    font-size: 14px;
+}
+
+.download-preview {
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8f5e8;
+    border-radius: 8px;
+    border-left: 4px solid #4caf50;
+}
+
+.preview-header {
+    font-weight: 600;
+    color: #2e7d32;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.preview-text {
+    font-size: 12px;
+    color: #388e3c;
+    line-height: 1.4;
+}
+
+/* Responsive ajustes */
+@media (max-width: 520px) {
+    .radio-group {
+        gap: 8px;
+    }
+    
+    .radio-content small {
+        font-size: 10px;
+    }
+    
+    .id-filter-config {
+        padding: 15px;
+    }
+}
+
+.filter-step {
+    margin-bottom: 20px;
+}
+
+.filter-step h4 {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.id-filter-config {
+    margin-top: 20px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border-left: 4px solid #1a73e8;
+}
+
+.id-filter-config textarea {
+    height: 100px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.download-options {
+    margin-top: 15px;
+}
+
+.download-options .radio-label {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.download-options .radio-label:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.download-options .radio-label strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.download-options .radio-label small {
+    display: block;
+    color: #666;
+    font-size: 11px;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+.download-options input[type="radio"]:checked + .radio-mark + strong {
+    color: #1a73e8;
+}
+
+.download-options input[type="radio"]:checked ~ small {
+    color: #1a73e8;
+    font-weight: 600;
+}
+
+.ids-count {
+    text-align: right;
+    font-size: 12px;
+    color: #1a73e8;
+    font-weight: 600;
+    margin: 10px 0;
+    padding: 8px;
+    background: white;
+    border-radius: 6px;
+}

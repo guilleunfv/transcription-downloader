@@ -8,7 +8,7 @@
     <div class="container">
         <div class="header">
             <h1>🚀 Transcription Downloader Pro</h1>
-            <div class="version">v1.1.0</div>
+            <div class="version">v1.2.0</div>
         </div>
         
         <div class="alert info">
@@ -34,24 +34,6 @@
         </div>
 
         <div class="section">
-            <h3>📊 Google Sheets (Opcional)</h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="useGoogleSheets">
-                    <span class="checkmark"></span>
-                    Guardar reporte en Google Sheets
-                </label>
-            </div>
-            <div id="sheetsConfig" class="sheets-config" style="display: none;">
-                <label>ID de Google Sheet:</label>
-                <input type="text" id="googleSheetId" placeholder="1FXpbsDD_xgPhsDSOvsvL_zuqK5uH8WLCD532co-GrS8">
-                <label>Nombre de la Pestaña:</label>
-                <input type="text" id="sheetTabName" value="Reporte Consolidado" placeholder="Nombre de la pestaña">
-                <div class="help-text">💡 Crea una hoja nueva o usa una existente. La extensión creará la pestaña si no existe.</div>
-            </div>
-        </div>
-
-        <div class="section">
             <h3>📅 Configuración de Fechas</h3>
             <div class="date-row">
                 <div class="date-col">
@@ -66,48 +48,79 @@
         </div>
 
         <div class="section">
-            <h3>📁 Opciones de Descarga</h3>
-            <div class="checkbox-group">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="separateFolders" checked>
-                    <span class="checkmark"></span>
-                    Separar archivos filtrados/no filtrados
-                </label>
-            </div>
-        </div>
-
-        <div class="section">
-            <h3>🎯 IDs para Filtrar</h3>
-            <div class="ids-options">
-                <label class="radio-label">
-                    <input type="radio" name="idsMode" value="all" checked>
-                    <span class="radio-mark"></span>
-                    Descargar TODOS los archivos encontrados
-                </label>
-                <label class="radio-label">
-                    <input type="radio" name="idsMode" value="filter">
-                    <span class="radio-mark"></span>
-                    Filtrar solo archivos con IDs específicos
-                </label>
-            </div>
+            <h3>🎯 Configuración de Filtrado Inteligente</h3>
             
-            <div id="idsFilterSection" class="ids-filter-section" style="display: none;">
+            <div class="filter-step">
+                <h4>¿Tienes lista de IDs específicos para filtrar?</h4>
+                <label class="radio-label">
+                    <input type="radio" name="hasIdFilter" value="no" checked>
+                    <span class="radio-mark"></span>
+                    NO - Descargar TODOS los archivos en una sola carpeta
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="hasIdFilter" value="yes">
+                    <span class="radio-mark"></span>
+                    SÍ - Tengo lista de IDs específicos para filtrar
+                </label>
+            </div>
+
+            <div id="idFilterConfig" class="id-filter-config" style="display: none;">
                 <label>Tus IDs para filtrar (separados por comas):</label>
                 <textarea id="targetIds" placeholder="123456789,987654321,555666777
-Pega aquí tus IDs separados por comas, espacios o saltos de línea.
-Ejemplo: 733686653, 1571520847, 404916650"></textarea>
+Pega aquí tus IDs separados por comas, espacios o saltos de línea."></textarea>
+                
                 <div class="ids-actions">
                     <button id="loadIdsFromFile" class="btn-small">📂 Cargar desde archivo</button>
                     <button id="validateIds" class="btn-small">✅ Validar IDs</button>
                     <button id="clearIds" class="btn-small">🗑️ Limpiar</button>
                 </div>
                 <div id="idsCount" class="ids-count">0 IDs configurados</div>
+
+                <h4>¿Qué archivos quieres descargar?</h4>
+                <div class="download-options">
+                    <label class="radio-label">
+                        <input type="radio" name="filterMode" value="only-included">
+                        <span class="radio-mark"></span>
+                        <strong>Solo INCLUIDOS</strong> - Archivos que SÍ contengan mis IDs
+                        <small>📁 Carpeta: INCLUIDOS</small>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="filterMode" value="only-excluded">
+                        <span class="radio-mark"></span>
+                        <strong>Solo NO INCLUIDOS</strong> - Archivos que NO contengan mis IDs
+                        <small>�� Carpeta: NO_INCLUIDOS</small>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="filterMode" value="both" checked>
+                        <span class="radio-mark"></span>
+                        <strong>AMBOS TIPOS</strong> - Separar en 2 carpetas
+                        <small>📁 Carpetas: INCLUIDOS + NO_INCLUIDOS</small>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📊 Google Sheets (Opcional)</h3>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="useGoogleSheets">
+                    <span class="checkmark"></span>
+                    Guardar reporte detallado en Google Sheets
+                </label>
+            </div>
+            <div id="sheetsConfig" class="sheets-config" style="display: none;">
+                <label>ID de Google Sheet:</label>
+                <input type="text" id="googleSheetId" placeholder="1FXpbsDD_xgPhsDSOvsvL_zuqK5uH8WLCD532co-GrS8">
+                <label>Nombre de la Pestaña:</label>
+                <input type="text" id="sheetTabName" value="Reporte Transcripciones" placeholder="Nombre de la pestaña">
+                <div class="help-text">💡 La extensión creará la pestaña si no existe</div>
             </div>
         </div>
 
         <div class="action-section">
             <button id="startProcess" class="btn-success" disabled>
-                🚀 INICIAR DESCARGA MASIVA
+                🚀 INICIAR DESCARGA INTELIGENTE
             </button>
             <button id="stopProcess" class="btn-danger" disabled>
                 ⏹️ DETENER PROCESO
@@ -148,15 +161,190 @@ Ejemplo: 733686653, 1571520847, 404916650"></textarea>
 
         <div class="footer">
             <div class="links">
-                <a href="#" target="_blank">🐙 GitHub</a>
-                <a href="#" target="_blank">🐛 Reportar Bug</a>
+                <a href="https://github.com/guilleunfv/transcription-downloader" target="_blank">🐙 GitHub</a>
+                <a href="https://github.com/guilleunfv/transcription-downloader/issues" target="_blank">�� Reportar Bug</a>
             </div>
         </div>
     </div>
 
-    <!-- Input oculto para cargar archivos -->
     <input type="file" id="fileInput" accept=".txt,.csv" style="display: none;">
+    <script src="popup.js"></script>
+</body>
+</html>
+HTML_ENDcd /workspaces/transcription-downloader
 
+# Actualizar popup.html con la nueva interfaz
+cat > popup.html << 'HTML_END'
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Transcription Downloader Pro</h1>
+            <div class="version">v1.2.0</div>
+        </div>
+        
+        <div class="alert info">
+            <strong>📋 Cómo obtener tu token:</strong><br>
+            1. Ve a <a href="https://drive.google.com" target="_blank">Google Drive</a><br>
+            2. Presiona F12 → pestaña "Network"<br>
+            3. Navega por Drive (abre carpetas)<br>
+            4. Busca petición "files" → Headers → Authorization<br>
+            5. Copia el valor completo (Bearer ya29...)
+        </div>
+
+        <div class="section">
+            <h3>🔑 Token de Acceso</h3>
+            <textarea id="accessToken" placeholder="Bearer ya29.a0Ad52N0... (pega aquí tu token completo)"></textarea>
+            <button id="validateToken" class="btn-primary">✅ Validar Token</button>
+        </div>
+
+        <div class="section">
+            <h3>📁 Configuración de Google Drive</h3>
+            <label>ID de Carpeta Principal:</label>
+            <input type="text" id="mainFolderId" placeholder="1EG1FTkomRb9W02Qr1x7PEJBjsC26fqN_ (ID de tu carpeta principal)">
+            <div class="help-text">💡 Obtén el ID desde la URL de tu carpeta de Google Drive</div>
+        </div>
+
+        <div class="section">
+            <h3>📅 Configuración de Fechas</h3>
+            <div class="date-row">
+                <div class="date-col">
+                    <label>Fecha Inicio:</label>
+                    <input type="date" id="startDate" value="2025-08-08">
+                </div>
+                <div class="date-col">
+                    <label>Fecha Fin:</label>
+                    <input type="date" id="endDate" value="2025-08-16">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>🎯 Configuración de Filtrado Inteligente</h3>
+            
+            <div class="filter-step">
+                <h4>¿Tienes lista de IDs específicos para filtrar?</h4>
+                <label class="radio-label">
+                    <input type="radio" name="hasIdFilter" value="no" checked>
+                    <span class="radio-mark"></span>
+                    NO - Descargar TODOS los archivos en una sola carpeta
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="hasIdFilter" value="yes">
+                    <span class="radio-mark"></span>
+                    SÍ - Tengo lista de IDs específicos para filtrar
+                </label>
+            </div>
+
+            <div id="idFilterConfig" class="id-filter-config" style="display: none;">
+                <label>Tus IDs para filtrar (separados por comas):</label>
+                <textarea id="targetIds" placeholder="123456789,987654321,555666777
+Pega aquí tus IDs separados por comas, espacios o saltos de línea."></textarea>
+                
+                <div class="ids-actions">
+                    <button id="loadIdsFromFile" class="btn-small">📂 Cargar desde archivo</button>
+                    <button id="validateIds" class="btn-small">✅ Validar IDs</button>
+                    <button id="clearIds" class="btn-small">🗑️ Limpiar</button>
+                </div>
+                <div id="idsCount" class="ids-count">0 IDs configurados</div>
+
+                <h4>¿Qué archivos quieres descargar?</h4>
+                <div class="download-options">
+                    <label class="radio-label">
+                        <input type="radio" name="filterMode" value="only-included">
+                        <span class="radio-mark"></span>
+                        <strong>Solo INCLUIDOS</strong> - Archivos que SÍ contengan mis IDs
+                        <small>📁 Carpeta: INCLUIDOS</small>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="filterMode" value="only-excluded">
+                        <span class="radio-mark"></span>
+                        <strong>Solo NO INCLUIDOS</strong> - Archivos que NO contengan mis IDs
+                        <small>�� Carpeta: NO_INCLUIDOS</small>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="filterMode" value="both" checked>
+                        <span class="radio-mark"></span>
+                        <strong>AMBOS TIPOS</strong> - Separar en 2 carpetas
+                        <small>📁 Carpetas: INCLUIDOS + NO_INCLUIDOS</small>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📊 Google Sheets (Opcional)</h3>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="useGoogleSheets">
+                    <span class="checkmark"></span>
+                    Guardar reporte detallado en Google Sheets
+                </label>
+            </div>
+            <div id="sheetsConfig" class="sheets-config" style="display: none;">
+                <label>ID de Google Sheet:</label>
+                <input type="text" id="googleSheetId" placeholder="1FXpbsDD_xgPhsDSOvsvL_zuqK5uH8WLCD532co-GrS8">
+                <label>Nombre de la Pestaña:</label>
+                <input type="text" id="sheetTabName" value="Reporte Transcripciones" placeholder="Nombre de la pestaña">
+                <div class="help-text">💡 La extensión creará la pestaña si no existe</div>
+            </div>
+        </div>
+
+        <div class="action-section">
+            <button id="startProcess" class="btn-success" disabled>
+                🚀 INICIAR DESCARGA INTELIGENTE
+            </button>
+            <button id="stopProcess" class="btn-danger" disabled>
+                ⏹️ DETENER PROCESO
+            </button>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+                <div class="progress-text">
+                    <span id="progressPercent">0%</span>
+                </div>
+            </div>
+            <div id="status" class="status">Configura los campos anteriores para comenzar</div>
+            <div id="stats" class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Procesados:</span>
+                    <span id="processed" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Descargados:</span>
+                    <span id="downloaded" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Errores:</span>
+                    <span id="errors" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="logs-section">
+            <div class="logs-header">
+                <h4>📋 Registro de Actividad</h4>
+                <button id="clearLogs" class="btn-small">🗑️ Limpiar</button>
+            </div>
+            <div id="logs" class="logs"></div>
+        </div>
+
+        <div class="footer">
+            <div class="links">
+                <a href="https://github.com/guilleunfv/transcription-downloader" target="_blank">🐙 GitHub</a>
+                <a href="https://github.com/guilleunfv/transcription-downloader/issues" target="_blank">�� Reportar Bug</a>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="fileInput" accept=".txt,.csv" style="display: none;">
     <script src="popup.js"></script>
 </body>
 </html>
