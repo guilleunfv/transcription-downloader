@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Transcription Downloader Pro",
-  "version": "1.0.0",
-  "description": "Descarga masiva de transcripciones desde Google Drive - Potente y gratuito",
+  "version": "1.1.0",
+  "description": "Descarga masiva personalizable de transcripciones desde Google Drive",
   "permissions": [
     "storage",
     "downloads",
