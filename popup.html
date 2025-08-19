@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Transcription Downloader Pro</h1>
+            <div class="version">v1.0.0</div>
+        </div>
+        
+        <div class="alert info">
+            <strong>📋 Cómo obtener tu token:</strong><br>
+            1. Ve a <a href="https://drive.google.com" target="_blank">Google Drive</a><br>
+            2. Presiona F12 → pestaña "Network"<br>
+            3. Navega por Drive (abre carpetas)<br>
+            4. Busca petición "files" → Headers → Authorization<br>
+            5. Copia el valor completo (Bearer ya29...)
+        </div>
+
+        <div class="section">
+            <h3>🔑 Token de Acceso</h3>
+            <textarea id="accessToken" placeholder="Bearer ya29.a0Ad52N0... (pega aquí tu token completo)"></textarea>
+            <button id="validateToken" class="btn-primary">✅ Validar Token</button>
+        </div>
+
+        <div class="section">
+            <h3>📅 Configuración de Fechas</h3>
+            <div class="date-row">
+                <div class="date-col">
+                    <label>Fecha Inicio:</label>
+                    <input type="date" id="startDate" value="2025-08-08">
+                </div>
+                <div class="date-col">
+                    <label>Fecha Fin:</label>
+                    <input type="date" id="endDate" value="2025-08-16">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📁 Opciones de Descarga</h3>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="separateFolders" checked>
+                    <span class="checkmark"></span>
+                    Separar archivos filtrados/no filtrados
+                </label>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>🎯 IDs Objetivo</h3>
+            <textarea id="targetIds" readonly>733686653,1571520847,404916650,44163454,181945261,1636240046,1823669219,751576740,1766047143,706802666,542998559,599375082,30510758,41357962,75942826,1383082988,1538682855,1832106085,1199522098,339172427,281967114,128715346,1487501070,1063920268,84168192,1252479223,435794349,616291028,1846052899,172689106,722854315,1094833474,1639940801,619922934,7833368,310487837,458703764,53356195,353275534,1416188322,1207423413,763252077,1882913622,1425236703,1161201615,710400625,198272438,54957714,196229995,232468827,528399728,1034552318,21909288,433861385,214339673,1451219452,1340587155,314407726,419054508,232042087,779432305,350821331,1084931790,1250128526,644966577,1181375222,1831060932,89676505,158666864,575282779,1792374255,1680733519,488367565,623737495,694401214,1984879361,164386120,498023897,1109059114,11830393,18229478,134600981,1220413216,1361798295,620714333,1663150592,416330730,262044446,703821933,662695323,1206686237,688049709,1188807177,107276174,553493350,530094229,606949420,300920535,522944622,46210092,81627782,360130448,1157112651,1453930710,412556769,2240241840,137165467,1812544874,156907855,93138668,86374834,74117548,406795244,61781956,760085784,196170817,155290426,822526632,1302568533,532507190,1482519407,1145129199,774454490,1289177267,637768661,375946198,465203633,480923446,1637843005,134179899,1751394678,1337755921,1224049500,154997045,1572366125,617456581,1899646108,1071002699,1882888462,809275391,512236841,42846864,1691465282,1867434135,1410361225,45918159,257622963,2094373486,1722920159,665241241,751572751,165952330,629254788,1048747065,2042165312,1063399288,248266987,1861905077,1422387987,133856480,622556468,1116447140,1747498686,1091497679,142626730,1559505049,220601793,579862007,2435118615,578983863,726272215,564864584,1161935837,339906180,1444771988,1173860823,1847140986,162251719,791208928,184280816,532278155,1285453793,680128244,208878727,133770469,1790692914,608772188,186041861,1079961291,51951456,2462365018,466044908,140371032,727274974,1108927483,787111709,36542497,153148215,717388618,215961532,296878083,1497628317,700036507,1661959370,1288681087,92457833,1013275326,1447767850,617039820,113914870,1112614450,446654937,298490313,113383976,1187972358,296847653,105837857,1506173765,1106380005,298110930,1246115547,277843620,1129286726,726167049,268404172,584829740,1500660705,494158651,303933007,10477348,1627797937,471873876,148156854,2003894539,485805035,418616069,139181235,1455144858,197132517,740977997,258533620,199362973,544346235,230522298,662536798,63074423,725586527,568773774,1124619039,56278864,171829817,35063313,1093622447,1355647727</textarea>
+            <div class="id-count">250 IDs configurados</div>
+        </div>
+
+        <div class="action-section">
+            <button id="startProcess" class="btn-success" disabled>
+                🚀 INICIAR DESCARGA MASIVA
+            </button>
+            <button id="stopProcess" class="btn-danger" disabled>
+                ⏹️ DETENER PROCESO
+            </button>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill"></div>
+                <div class="progress-text">
+                    <span id="progressPercent">0%</span>
+                </div>
+            </div>
+            <div id="status" class="status">Ingresa tu token de Google Drive para comenzar</div>
+            <div id="stats" class="stats">
+                <div class="stat-item">
+                    <span class="stat-label">Procesados:</span>
+                    <span id="processed" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Descargados:</span>
+                    <span id="downloaded" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Errores:</span>
+                    <span id="errors" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="logs-section">
+            <div class="logs-header">
+                <h4>📋 Registro de Actividad</h4>
+                <button id="clearLogs" class="btn-small">🗑️ Limpiar</button>
+            </div>
+            <div id="logs" class="logs"></div>
+        </div>
+
+        <div class="footer">
+            <div class="links">
+                <a href="https://github.com/extgucamahu/transcription-downloader" target="_blank">🐙 GitHub</a>
+                <a href="https://github.com/extgucamahu/transcription-downloader/issues" target="_blank">🐛 Reportar Bug</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

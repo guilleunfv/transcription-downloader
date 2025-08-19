@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Transcription Downloader Pro",
+  "version": "1.0.0",
+  "description": "Descarga masiva de transcripciones desde Google Drive - Potente y gratuito",
+  "permissions": [
+    "storage",
+    "downloads",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://drive.google.com/*",
+    "https://docs.google.com/*",
+    "https://sheets.google.com/*",
+    "https://www.googleapis.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Transcription Downloader Pro",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://drive.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
