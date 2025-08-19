@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcription Downloader Pro - Descarga Masiva de Transcripciones</title>
+    <meta name="description" content="Extensión para Chrome que permite descargar automáticamente transcripciones desde Google Drive. Rápido, gratuito y potente.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>🚀 Transcription Downloader Pro</h1>
+                    <p class="hero-subtitle">Descarga masiva automática de transcripciones desde Google Drive</p>
+                    <div class="hero-features">
+                        <span class="feature-badge">✨ Gratuito</span>
+                        <span class="feature-badge">⚡ Rápido</span>
+                        <span class="feature-badge">🔥 Potente</span>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="https://github.com/extgucamahu/transcription-downloader/archive/main.zip" class="btn btn-primary download-btn">
+                            📥 Descargar Extensión
+                        </a>
+                        <a href="#tutorial" class="btn btn-secondary">
+                            📺 Ver Tutorial
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="extension-preview">
+                        <div class="browser-mockup">
+                            <div class="browser-header">
+                                <div class="browser-controls">
+                                    <span class="control red"></span>
+                                    <span class="control yellow"></span>
+                                    <span class="control green"></span>
+                                </div>
+                                <div class="browser-url">chrome-extension://transcription-downloader</div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="extension-ui">
+                                    <div class="ui-header">🚀 Transcription Downloader Pro</div>
+                                    <div class="ui-content">
+                                        <div class="ui-section">
+                                            <div class="ui-label">📅 Configuración de Fechas</div>
+                                            <div class="ui-inputs">
+                                                <input type="text" value="2025-08-08" readonly>
+                                                <input type="text" value="2025-08-16" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="ui-section">
+                                            <button class="ui-button">🚀 INICIAR DESCARGA MASIVA</button>
+                                        </div>
+                                        <div class="ui-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 65%"></div>
+                                            </div>
+                                            <div class="progress-stats">
+                                                <span>Procesados: 127</span>
+                                                <span>Descargados: 89</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Características -->
+    <section class="features">
+        <div class="container">
+            <h2>✨ Características Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Descarga Masiva</h3>
+                    <p>Procesa cientos de archivos automáticamente sin intervención manual</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Filtrado Inteligente</h3>
+                    <p>Separa archivos por IDs específicos y organiza automáticamente</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h3>Filtro por Fechas</h3>
+                    <p>Configura rangos de tiempo personalizados para búsquedas precisas</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3>Organización Automática</h3>
+                    <p>Crea estructura de carpetas por supervisor y agente automáticamente</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Sin Límites</h3>
+                    <p>Descarga todos los archivos que encuentre, sin restricciones artificiales</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Seguro y Privado</h3>
+                    <p>No requiere API keys complejas, usa tu propia autenticación de Google</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorial -->
+    <section id="tutorial" class="tutorial">
+        <div class="container">
+            <h2>📋 Instalación en 5 Minutos</h2>
+            <div class="tutorial-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>📥 Descargar</h3>
+                        <p>Descarga el archivo ZIP de la extensión y extráelo en tu computadora</p>
+                        <a href="https://github.com/extgucamahu/transcription-downloader/archive/main.zip" class="step-button">Descargar ZIP</a>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>⚙️ Instalar</h3>
+                        <p>Ve a <code>chrome://extensions/</code>, activa "Modo desarrollador" y carga la carpeta extraída</p>
+                        <button class="step-button" onclick="copyToClipboard('chrome://extensions/')">Copiar URL</button>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>🔑 Token</h3>
+                        <p>Ve a Google Drive, navega por carpetas y obtén tu token automáticamente</p>
+                        <a href="https://drive.google.com" target="_blank" class="step-button">Abrir Drive</a>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>🚀 ¡Listo!</h3>
+                        <p>Configura fechas, valida tu token y comienza la descarga masiva</p>
+                        <div class="step-button success">¡A descargar!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="250">0</div>
+                    <div class="stat-label">IDs Preconfigurados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Archivos por Minuto</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">% Gratuito</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="0">0</div>
+                    <div class="stat-label">Configuración Compleja</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>❓ Preguntas Frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">¿Es realmente gratuito?</div>
+                    <div class="faq-answer">Sí, completamente gratuito. Es código abierto y no tiene costos ocultos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Funciona con cualquier cuenta de Google?</div>
+                    <div class="faq-answer">Funciona con cualquier cuenta que tenga acceso a las carpetas de transcripciones.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Cuántos archivos puede descargar?</div>
+                    <div class="faq-answer">No hay límites artificiales. Descarga todos los archivos que encuentre.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué pasa si se interrumpe el proceso?</div>
+                    <div class="faq-answer">Puedes reanudar donde quedó. La extensión recuerda qué archivos ya procesó.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Es seguro usar mi token de Google?</div>
+                    <div class="faq-answer">Sí, el token solo se usa localmente en tu navegador, nunca se envía a servidores externos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Funciona en otros navegadores?</div>
+                    <div class="faq-answer">Está optimizada para Chrome, pero debería funcionar en navegadores basados en Chromium.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>🎉 ¿Listo para automatizar tus descargas?</h2>
+                <p>Únete a los usuarios que ya ahorraron horas de trabajo manual</p>
+                <div class="cta-buttons">
+                    <a href="https://github.com/extgucamahu/transcription-downloader/archive/main.zip" class="btn btn-primary btn-large">
+                        📥 Descargar Gratis Ahora
+                    </a>
+                    <a href="https://github.com/extgucamahu/transcription-downloader" target="_blank" class="btn btn-outline btn-large">
+                        🐙 Ver en GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">🚀 Transcription Downloader Pro</div>
+                    <p>Hecho con ❤️ para automatizar tareas repetitivas</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/extgucamahu/transcription-downloader">GitHub</a>
+                    <a href="https://github.com/extgucamahu/transcription-downloader/issues">Reportar Bug</a>
+                    <a href="https://github.com/extgucamahu/transcription-downloader/blob/main/INSTALL.md">Documentación</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
